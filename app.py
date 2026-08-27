@@ -8,30 +8,75 @@ st.set_page_config(
     layout="wide"
 )
 
-#Encabezado principal
-st.title("🛢️ Ruta Patrimonial: Los Pozos Petroleros de Ancón")
+# --- Navegación y Menú Lateral ---
+st.sidebar.title("🛢️ Ruta Ancón")
+st.sidebar.markdown("---")
+opcion = st.sidebar.radio("Navegación", ["Inicio", "Pozos Patrimoniales", "Dashboard Interactivo", "Agendar Visita"])
 
-# Menú Lateral
-st.sidebar.header("Navegación")
-opcion = st.sidebar.radio(
-    "Selecciona una sección:",
-    ["Inicio", "Ruta y Pozos Petroleros", "Dashboard Interactivo", "Agendar Visita" ]
-)
-
-# --- SECCION: INICIO ---
+# Sección: Inicio (Pantalla de Bienvenida)
 if opcion == "Inicio":
-    st.header("Bienvenido a Ancón: Cuna Petrolera del Ecuador")
-    st.write(
-        """
-        Esta plataforma de turismo comunitario promueve el reconocimiento de la historia
-        y el patrimonio industrial de Ancón a través de un recorrido interactivo por sus
-        pozos petroleros históricos y activos.
-        """
-    )
-    st.info("💡 **Dato clave:** En Ancón conviven la historia pionera de la extracción petrolera en el país y operaciones que continúan activas hasta el día de hoy.")
+    # Encabezado con logos institucionales
+    col_logo1, col_titulo, col_logo2 = st.columns([1, 4, 1])
+
+    with col_logo1:
+        st.image("assets/Espol_Logo.png", use_container_width=True)
+
+    with col_titulo:
+        st.markdown(
+            "<h2 style='text-align: center; color: #1B3B48; margin-bottom: 0; '>Ruta Patrimonial de la Cuna del Petróleo Ecuatoriano</h2>",
+            unsafe_allow_html=True
+        )
+    with col_logo2:
+        st.image("assets/gad_ancon.png", use_container_width=True)
+
+    st.divider()
+
+    #Banner de la ruta
+    st.image("assets/Balacin.png", use_container_width=True, caption="Pozo Ancón 1 y paisaje Patrimonial")
+
+    # Métricas
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label="Año de Descubrimiento", value="1911")
+    with col2:
+        st.metric(label="Pozo Emblemático", value="Ancón 1")
+    with col3:
+        st.metric(label="Ubicación", value="Santa Elena, Ec")
+    with col4:
+        st.metric(label="Estado del Campo", value="Activo / Patrimonial")
+
+    st.markdown("---")
+
+    #Información en columnas interactivas
+    col_izq, col_der = st.columns([2 ,1])
+
+    with col_izq:
+        st.markdown("### 📌 Sobre la Ruta Turística")
+        st.write("""
+        Esta aplicación fue desarrollada como parte de un proyecto comunitaria para **fomentar el turismo patrimonial e industrial** en la parroquia San José de Ancón.
+        
+        A través de esta plataforma interactiva podrás:
+        * **Explorar el catálogo de pozos activos e históricos** con su ficha técnica y ubicación geográfica.
+        * **Analizar indicadores clave de producción e historia** a través de un Dashboard en Power BI.
+        * **PLanificar tu recorrido guiado** mediante el mapa de navegación oficial.
+        """)
+
+        st.info("💡 **Dato Curioso:** El Pozo Ancón 1 marcó el inicio de la era petrolera industrial en el Ecuador el 5 de noviembre de 1911.")
+
+    with col_der:
+        st.markdown("### 🗺️ Acceso Rápido")
+        st.success("✔ **Guía turística interactiva** disponible 24/7.")
+        st.warning("📍 **Ubicación:** Parroquia Ancón, Península de Santa Elena.")
+
+        #Botón informativo
+        st.markdown("### ¿Listo para explorar?")
+        st.write("Utiliza el menú lateral para navegar por los diferentes módulos de la plataforma.")
+
+
+
 
     # -- SECCION: RUTA Y POZOS PETROLEROS ---
-elif opcion == "Ruta y Pozos Petroleros":
+elif opcion == "Pozos Patrimoniales":
     st.header("🗺️ Ruta Patrimonial en Google Maps")
     st.write("Sigue el mapa oficial diseñado para el recorrido turístico e histórico en Ancón:")
 
