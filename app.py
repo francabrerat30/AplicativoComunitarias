@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 #Encabezado principal
-st.tile("🛢️ Ruta Patrimonial: Los Pozos Petroleros de Ancón")
+st.title("🛢️ Ruta Patrimonial: Los Pozos Petroleros de Ancón")
 
 # Menú Lateral
 st.sidebar.header("Navegación")
@@ -53,7 +53,7 @@ elif opcion == "Ruta y Pozos Petroleros":
                 Representa el nacimiento de la industria hidrocarburífera en el país y marca el inicio
                 del desarrollo urbano y social del campamento de Ancón.
                 """,
-            "imagen": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600" # URL de ejemplo
+            "imagen": "assets/PozoAncon1.png" # URL de ejemplo
         },
         "Pozo Activo - Balancín en Producción":{
             "estado": "En Producción Activa",
@@ -61,7 +61,7 @@ elif opcion == "Ruta y Pozos Petroleros":
                 Este pozo cuenta con un sistema de extracción por bombeo mecánico (balancín o 'nodding donkey').
                 Demuestra cómo la extracción tradicional se mantiene operativa y eficiente tras décadas de operación en la cuenca.
                 """,
-            "imagen": "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600"  # URL de ejemplo
+            "imagen": "assets/Balacin.png"  # URL de ejemplo
         },
         "Campamento Inglés / Zona Patrimonial":{
             "estado": "Patrimonio Arquitectónico e Industrial",
@@ -69,7 +69,7 @@ elif opcion == "Ruta y Pozos Petroleros":
                 Sector que conserva la arquitectura de estilo colonial e inglés traída por los administradores
                 de la Anglo Ecuadorian Oilfields. Es un testimonio vivo del estilo de vida y la organización social de la época.
                 """,
-            "imagen": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=600"  # URL de ejemplo
+            "imagen": "assets/barrioIngles.jpg"  # URL de ejemplo
         }
     }
 
@@ -89,14 +89,14 @@ elif opcion == "Ruta y Pozos Petroleros":
 
     with col2:
         st.write("### Imagen Actual / Estado:")
-        st.image(datos["imagen"], caption=f"Vista actual - {pozo_seleccionado}", use_container_width=True)
+        st.image(datos["imagen"], caption=f"{pozo_seleccionado}", use_container_width=True)
 
 # --- SECCION: DASHBOARD INTERACTIVO ---
-elif opcion"Dashboard Interactivo":
+elif opcion == "Dashboard Interactivo":
     st.header("📊 Dahsboard de Control y Análisis - Ancón")
     st.write("Explora las métricas e indicadores de la ruta patrimonial y pozos petroleros.")
 
-    powerbi_url = "https://app.powerbi.com/view?r=eyJrIjoiY2M5MTgwOWQtOWMyMi00MDYyLTljMWQtNGU5MjJiZDc2MTI2IiwidCI6ImI3YWY4Y2FmLTgzZDgtNDY0NC04NWFlLTMxN2M1NDUyMjNjMSIsImMiOjR9&disablecdnExpiration=1778806908"
+    powerbi_url = "https://app.powerbi.com/links/T1PFX9DnUw?ctid=b7af8caf-83d8-4644-85ae-317c545223c1&pbi_source=linkShare"
     components.iframe(src=powerbi_url, width=1100, height=600, scrolling=True)
 
 # --- SECCION: AGENDAR VISITA ---
@@ -108,7 +108,7 @@ elif opcion == "Agendar Visita":
         nombre = st.text_input("Nombre completo:")
         correo = st.text_input("Correo electrónico:")
         tipo = st.selectbox("Tipo de visitante:", ["Turista", "Estudiante / Universidad", "Investigador", "Otro"])
-        enviado = st.form_submit-button("Registrar Visita")
+        enviado = st.form_submit_button("Registrar Visita")
         if enviado:
             st.success(f"¡Gracias {nombre}! Tu solicitud para la Ruta Patrimonial ha sido registrada.")
 
