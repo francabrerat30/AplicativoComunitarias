@@ -155,7 +155,7 @@ elif opcion == "Dashboard Interactivo":
     st.header("📊 Dahsboard de Control y Análisis - Ancón")
     st.write("Explora las métricas e indicadores de la ruta patrimonial y pozos petroleros.")
 
-    powerbi_url = "https://app.powerbi.com/groups/me/reports/ab821346-72dc-4d95-aefd-a517669e3904/f821efe08df728a9b349?ctid=b7af8caf-83d8-4644-85ae-317c545223c1&experience=power-bi"
+    powerbi_url = "https://app.powerbi.com/view?r=eyJrIjoiY2M5MTgwOWQtOWMyMi00MDYyLTljMWQtNGU5MjJiZDc2MTI2IiwidCI6ImI3YWY4Y2FmLTgzZDgtNDY0NC04NWFlLTMxN2M1NDUyMjNjMSIsImMiOjR9&disablecdnExpiration=1778806908"
     components.iframe(src=powerbi_url, width=1100, height=600, scrolling=True)
 
 # --- SECCION: AGENDAR VISITA ---
