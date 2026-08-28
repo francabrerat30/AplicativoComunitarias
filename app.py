@@ -25,7 +25,7 @@ st.markdown("""
 # --- Navegación y Menú Lateral ---
 st.sidebar.title("🛢️ Ruta Ancón")
 st.sidebar.markdown("---")
-opcion = st.sidebar.radio("Navegación", ["Inicio", "Pozos Patrimoniales", "Dashboard Interactivo", "Agendar Visita"])
+opcion = st.sidebar.radio("Navegación", ["Inicio", "Pozos Patrimoniales", "Dashboard Interactivo", "Agendar Visita / Schedule Visit"])
 
 # Sección: Inicio (Pantalla de Bienvenida)
 if opcion == "Inicio":
