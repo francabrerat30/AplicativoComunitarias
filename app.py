@@ -7,6 +7,20 @@ st.set_page_config(
     page_icon="🛢️",
     layout="wide"
 )
+st.markdown("""
+    <style>
+    /* Aumenta el tamaño del título de la barra lateral */
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2 {
+        font-size: 26px !important;
+    }
+    
+    /*Aumenta el tamaño de los textos y opciones de navegación */
+    [data-testid="stSidebar"] .stRadio label p {
+        font-size: 18px !important;
+        font-weight: 500:
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # --- Navegación y Menú Lateral ---
 st.sidebar.title("🛢️ Ruta Ancón")
@@ -16,7 +30,7 @@ opcion = st.sidebar.radio("Navegación", ["Inicio", "Pozos Patrimoniales", "Dash
 # Sección: Inicio (Pantalla de Bienvenida)
 if opcion == "Inicio":
     # Encabezado con logos institucionales
-    col_logo1, col_titulo, col_logo2 = st.columns([1, 4, 1])
+    col_logo1, col_titulo, col_logo2 = st.columns([2, 5, 2])
 
     with col_logo1:
         st.image("assets/Espol_Logo.png", use_container_width=True)
@@ -145,14 +159,14 @@ elif opcion == "Dashboard Interactivo":
     components.iframe(src=powerbi_url, width=1100, height=600, scrolling=True)
 
 # --- SECCION: AGENDAR VISITA ---
-elif opcion == "Agendar Visita":
+elif opcion == "Agendar Visita / Schedule Visit":
     st.header("📋 Registro de Visitantes")
     st.write("Completa el formulario para agendar una visita guiada con la comunidad de Ancón.")
 
     with st.form("form_visita"):
-        nombre = st.text_input("Nombre completo:")
-        correo = st.text_input("Correo electrónico:")
-        tipo = st.selectbox("Tipo de visitante:", ["Turista", "Estudiante / Universidad", "Investigador", "Otro"])
+        nombre = st.text_input("Nombre completo / Name and Last name:")
+        correo = st.text_input("Correo electrónico / email:")
+        tipo = st.selectbox("Tipo de visitante / type of visitor:", ["Turista / tourist", "Estudiante (student) / Universidad (university)", "Investigador / researcher", "Otro / others"])
         enviado = st.form_submit_button("Registrar Visita")
         if enviado:
             st.success(f"¡Gracias {nombre}! Tu solicitud para la Ruta Patrimonial ha sido registrada.")
